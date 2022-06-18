@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple JS Clock</title>
+</head>
+<body>
+    <div class="container">
+        <span id="hours">00</span>
+        <span>:</span>
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+        <span id="session">AM</span>
+    </div>
+    <script>
+        function displayTime(){
+            var dataTime = new Date();
+            var hours = dataTime.getHours();
+            var minutes = dataTime.getMinutes();
+            var seconds = dataTime.getSeconds();
+            var session = document.getElementById("session");	        
+            var sec = document.getElementById("seconds");	        
+            if(hours >= 12){
+                session.innerHTML= "PM";
+            }else{
+                session.innerHTML="AM";
+            }
+            document.getElementById("hours").innerHTML=hours;
+            document.getElementById("minutes").innerHTML=minutes;
+            document.getElementById("seconds").innerHTML=seconds;
+        }
+        setInterval(displayTime, 10)
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #5a5a5a;
+        }
+        .container{
+            width:600px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            color: #fff;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            line-height: 200px;
+            font-size: 84px;
+            font-family: 'Kdam Thmor Pro', sans-serif;
+            text-shadow: 2px 0 25px #000;
+        }
+        
+    </style>
+</body>
+</html>
